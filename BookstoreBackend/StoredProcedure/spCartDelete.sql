@@ -1,0 +1,16 @@
+CREATE PROC spCartDelete
+	@id INT,
+	@cart INT = NULL OUTPUT
+AS
+BEGIN
+	SET NOCOUNT ON;
+	IF EXISTS(SELECT * FROM [Cart] WHERE CartId = @id)
+	BEGIN
+		DELETE FROM [Cart] WHERE CartId = @id
+		SET @cart = 1;
+	END
+	ELSE
+	BEGIN
+		SET @cart = NULL;
+	END
+END
