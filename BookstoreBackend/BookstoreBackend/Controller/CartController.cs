@@ -50,7 +50,7 @@ namespace BookstoreBackend.Controller
             List<CartModel> cart = this.manager.GetCartItems(userId);
             try
             {
-                if (cart.Count > 0)
+                if (cart != null)
                 {
                     return this.Ok(new { success = true, message = "Get Cart Items Successful", data = cart });
 

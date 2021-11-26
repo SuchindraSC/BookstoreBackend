@@ -19,7 +19,7 @@ namespace BookstoreBackend.Controller
         }
 
         [HttpPost]
-        [Route("wishlist-add-book")]
+        [Route("api/wishlist-add-book")]
         public IActionResult AddBookToWishlist(int bookId, int userId)
         {
             try

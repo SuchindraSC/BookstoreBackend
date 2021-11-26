@@ -61,7 +61,7 @@ namespace BookstoreRepository.Repository
             {
                 using (connection)
                 {
-                    string spName = "spUpdateAddress";
+                    string spName = "spUpdateUserDetails";
                     SqlCommand command = new SqlCommand(spName, connection);
                     command.CommandType = CommandType.StoredProcedure;
 
