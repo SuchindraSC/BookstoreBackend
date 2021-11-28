@@ -1,4 +1,4 @@
-CREATE PROC spCartUpdate
+ALTER PROC spCartUpdate
 	@id INT,
 	@quantity INT,
 	@cart INT = NULL OUTPUT
@@ -10,7 +10,7 @@ SET NOCOUNT ON;
 		SET @cart = 1;
 		UPDATE Cart 
 		SET 
-			quantityToBuy = @quantity
+			quantityToBuy = @quantity 
 		WHERE
 			CartId = @id;
 	END

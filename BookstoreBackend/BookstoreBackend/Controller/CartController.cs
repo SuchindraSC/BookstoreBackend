@@ -1,5 +1,6 @@
 ﻿using BookstoreManager.Interface;
 using BookstoreModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace BookstoreBackend.Controller
 {
+    //[Authorize]
     [ApiController]
     public class CartController : ControllerBase
     {

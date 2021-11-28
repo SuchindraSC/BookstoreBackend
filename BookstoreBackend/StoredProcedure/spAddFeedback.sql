@@ -12,7 +12,7 @@ FOREIGN KEY (BookId) REFERENCES [Books] (BookId)
 ALTER TABLE [CustomerFeedback] ADD CONSTRAINT CustomerFeedback_UserId_Fk
 FOREIGN KEY (UserId) REFERENCES [Users] (CustomerId)
 
-CREATE PROCEDURE spAddFeedback
+ALTER PROCEDURE spAddFeedback
 (	
 	@BookId int,
 	@UserId int ,
@@ -34,5 +34,11 @@ AS
 		@FeedBack,
 		@Rating
 		)
+		declare @Average float
+		select @Average = AVG(rating) from CustomerFeedback WHERE BookId = @BookId
+		UPDATE Books SET rating = @Average WHERE BookId = @BookId
+		declare @Count int
+		select @Count = COUNT(rating) from CustomerFeedback WHERE BookId = @BookId
+		UPDATE Books SET count = @Count WHERE BookId = @BookId
 	END
 RETURN 0

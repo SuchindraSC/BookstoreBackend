@@ -1,5 +1,6 @@
 ﻿using BookstoreManager.Interface;
 using BookstoreModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace BookstoreBackend.Controller
 {
+    //[Authorize]
+    [ApiController]
     public class OrderController : ControllerBase
     {
         private readonly IOrderManager manager;
@@ -50,7 +53,7 @@ namespace BookstoreBackend.Controller
             var result = this.manager.GetOrderList(userId);
             try
             {
-                if (result.Count > 0)
+                if (result != null)
                 {
                     return this.Ok(new { Status = true, Message = "Wish List successfully retrived", Data = result });
 

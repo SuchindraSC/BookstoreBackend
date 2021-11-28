@@ -28,5 +28,9 @@ namespace BookstoreModel
 
         [Required(ErrorMessage = "discountPrice is required")]
         public int discountPrice { get; set; }
+
+        public double rating { get; set; }
+
+        public int count { get; set; }
     }
 }

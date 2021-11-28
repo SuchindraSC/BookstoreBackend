@@ -60,13 +60,13 @@ namespace BookstoreBackend.Controller
         }
 
         [HttpGet]
-        [Route("GetFeedback")]
+        [Route("api/GetFeedback")]
         public IActionResult GetFeedback(int bookid)
         {
             try
             {
                 var result = this.manager.GetCustomerFeedBack(bookid);
-                if (result.Count > 0)
+                if (result != null)
                 {
                     return this.Ok(new { success = true, Message = "Feedbackertrived", Data = result });
                 }

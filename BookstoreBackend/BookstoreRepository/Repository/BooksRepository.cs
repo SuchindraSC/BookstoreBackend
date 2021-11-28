@@ -46,8 +46,8 @@ namespace BookstoreRepository.Repository
                             book.price = Convert.ToInt32(reader["price"]);
                             book.discountPrice = Convert.ToInt32(reader["discountPrice"]);
                             book.quantity = Convert.ToInt32(reader["quantity"]);
-                       
-
+                            book.rating = Convert.ToDouble(reader["rating"]);
+                            book.count = Convert.ToInt32(reader["count"]);
                             bookList.Add(book);
                         }
                         return bookList;

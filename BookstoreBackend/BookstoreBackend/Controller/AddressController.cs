@@ -1,5 +1,6 @@
 ﻿using BookstoreManager.Interface;
 using BookstoreModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace BookstoreBackend.Controller
 {
+    //[Authorize]
     [ApiController]
     public class AddressController : ControllerBase
     {
@@ -73,7 +75,7 @@ namespace BookstoreBackend.Controller
             var result = this.manager.GetUserDetails(userId);
             try
             {
-                if (result.Count > 0)
+                if (result != null)
                 {
                     return this.Ok(new { Status = true, Message = "Address successfully retrived", Data = result });
 
