@@ -29,7 +29,6 @@ namespace BookstoreBackend.Controller
                 var result = this.manager.PlaceTheOrder(orderDetails);
                 if (result)
                 {
-
                     return this.Ok(new { success = true, Message = "Order placed successfully" });
                 }
                 else
