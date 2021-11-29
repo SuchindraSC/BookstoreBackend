@@ -34,7 +34,9 @@ namespace BookstoreRepository.Repository
                         connection.Open();
                         command.Parameters.AddWithValue("@BookId", order.BookId);
                         command.Parameters.AddWithValue("@UserId", order.UserId);
+                        command.Parameters.AddWithValue("@AddressId", order.AddressId);
                         command.Parameters.AddWithValue("@QuantityToBuy", order.QuantityToBuy);
+                        command.Parameters.AddWithValue("@Price", order.price);
                         string date = DateTime.Now.ToString(" dd MMM yyyy");
                         command.Parameters.AddWithValue("@OrderDate", date);
                         var returnedSQLParameter = command.Parameters.Add("@result", SqlDbType.Int);
